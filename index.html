@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3edfa">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>сайт никитки яндиева >.< </title>
+    <script>
+        /* тема из сохранённых настроек — до отрисовки, чтобы не мигало */
+        (function () {
+            try {
+                var k = 'nekxd' + '-theme';
+                if (localStorage.getItem(k) === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    var m = document.querySelector('meta[name="theme-color"]');
+                    if (m) m.setAttribute('content', '#141218');
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=donatepay.ru&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=t.me&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=openvk.org&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=tiktok.com&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=twitch.tv&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=emb.faero.top&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=vk.ru&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=yoomoney.ru&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=donationalerts.com&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=discord.com&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=faero.top&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=vepurovk.fun&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=mail.ru&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=ponos.lol&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=soap.nekxd.fun&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=nekxd.ru/skype&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=nekxd.ru&sz=32" as="image">
+    <link rel="preload" href="https://www.google.com/s2/favicons?domain=ponos.lol&sz=32" as="image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== MATERIAL YOU ТОКЕНЫ (светлая) ===== */
+        :root {
+            --md-primary: #6750a4;              /* основной фиолетовый */
+            --md-on-primary: #ffffff;
+            --md-primary-container: #e9ddff;    /* бледный фиолетовый контейнер */
+            --md-on-primary-container: #22005d;
+            --md-secondary-container: #e8def8;
+            --md-surface: #f3edfa;               /* бледнофиолетовый фон */
+            --md-surface-card: #fbf9fe;          /* карточки чуть светлее фона */
+            --md-surface-container-high: #ebe5f4;
+            --md-on-surface: #312259;            /* тёмнофиолетовый текст */
+            --md-on-surface-variant: #574e71;    /* вторичный текст */
+            --md-outline: #7c748e;
+            --md-outline-variant: #cfc5df;
+            --md-inverse-surface: #2c2438;
+            --md-inverse-on-surface: #f3eff7;
+            --hover-border: rgba(103, 80, 164, .5);
+            --md-emphasized: cubic-bezier(.2, 0, 0, 1);  /* m3 emphasized easing */
+            --shadow-1: 0 1px 2px rgba(49, 34, 89, .08);
+            --shadow-2: 0 6px 20px rgba(103, 80, 164, .16);
+            --ripple: rgba(103, 80, 164, .22);
+        }
+
+        /* ===== MATERIAL YOU ТОКЕНЫ (тёмная) ===== */
+        html[data-theme="dark"] {
+            --md-primary: #d0bcff;
+            --md-on-primary: #381e72;
+            --md-primary-container: #4f378b;
+            --md-on-primary-container: #e9ddff;
+            --md-secondary-container: #4a4458;
+            --md-surface: #141218;
+            --md-surface-card: #1e1b24;
+            --md-surface-container-high: #2a2731;
+            --md-on-surface: #e6e0e9;
+            --md-on-surface-variant: #cac4d0;
+            --md-outline: #938f99;
+            --md-outline-variant: #49454f;
+            --md-inverse-surface: #e6e0e9;
+            --md-inverse-on-surface: #372f3d;
+            --hover-border: rgba(208, 188, 255, .45);
+            --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
+            --shadow-2: 0 8px 24px rgba(0, 0, 0, .55);
+            --ripple: rgba(208, 188, 255, .22);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Google Sans', 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: var(--md-surface);
+            color: var(--md-on-surface);
+            min-height: 100vh;
+            padding: 100px 20px 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-transform: lowercase;           /* всё с мелких букв */
+            -webkit-font-smoothing: antialiased;
+            transition: padding-top .35s var(--md-emphasized), background-color .3s ease, color .3s ease;
+        }
+        body.no-banner { padding-top: 20px; }
+
+        .name { text-transform: none; }           /* кроме имени */
+
+        a { -webkit-tap-highlight-color: transparent; }
+
+        a:focus-visible, button:focus-visible, .copy-item:focus-visible {
+            outline: 2px solid var(--md-primary);
+            outline-offset: 2px;
+        }
+
+        /* ===== ПРЕЛОАДЕР (анимация загрузки сайта) ===== */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: var(--md-surface);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            transition: opacity .45s var(--md-emphasized), visibility 0s;
+        }
+        #preloader.pl-hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .45s var(--md-emphasized), visibility 0s .45s;
+        }
+        .pl-name {
+            font-size: clamp(20px, 4.5vw, 28px);
+            font-weight: 500;
+            letter-spacing: -.2px;
+            text-transform: none;                 /* имя как исключение */
+            color: var(--md-on-surface);
+            animation: pl-breathe 1.6s ease-in-out infinite;
+        }
+        @keyframes pl-breathe {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+        .pl-spinner {
+            width: 46px;
+            height: 46px;
+            animation: pl-rotate 1.15s cubic-bezier(.4, 0, .6, 1) infinite;
+        }
+        .pl-spinner circle {
+            fill: none;
+            stroke: var(--md-primary);
+            stroke-width: 4.5;
+            stroke-linecap: round;
+            stroke-dasharray: 10 106;
+            animation: pl-dash 1.5s ease-in-out infinite;
+        }
+        @keyframes pl-rotate { to { transform: rotate(360deg); } }
+        @keyframes pl-dash {
+            0%, 100% { stroke-dasharray: 8 106; }
+            50% { stroke-dasharray: 52 106; }
+        }
+        .pl-text {
+            font-size: 14px;
+            color: var(--md-on-surface-variant);
+        }
+
+        /* ===== ПОЯВЛЕНИЕ КОНТЕНТА ПОСЛЕ ПРЕЛОАДЕРА ===== */
+        .container { width: 100%; max-width: 820px; }
+        body.loaded .container > * {
+            animation: m3-reveal .6s var(--md-emphasized) backwards;
+        }
+        body.loaded .container > *:nth-child(1) { animation-delay: .03s; }
+        body.loaded .container > *:nth-child(2) { animation-delay: .08s; }
+        body.loaded .container > *:nth-child(3) { animation-delay: .13s; }
+        body.loaded .container > *:nth-child(4) { animation-delay: .18s; }
+        body.loaded .container > *:nth-child(5) { animation-delay: .23s; }
+        body.loaded .container > *:nth-child(6) { animation-delay: .28s; }
+        body.loaded .container > *:nth-child(7) { animation-delay: .33s; }
+        body.loaded .container > *:nth-child(8) { animation-delay: .38s; }
+        body.loaded .container > *:nth-child(9) { animation-delay: .43s; }
+        body.loaded .container > *:nth-child(10) { animation-delay: .48s; }
+        @keyframes m3-reveal {
+            from { opacity: 0; transform: translateY(16px); }
+        }
+
+        /* ===== БАННЕР СВЕРХУ ===== */
+        .kao-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--md-surface-card);
+            border-bottom: 1px solid var(--md-outline-variant);
+            box-shadow: var(--shadow-1);
+            padding: 10px 14px;
+            display: flex;
+            justify-content: center;
+            transition: transform .35s var(--md-emphasized), opacity .3s ease, background-color .3s ease;
+        }
+        .kao-banner.banner-hide {
+            transform: translateY(-110%);
+            opacity: 0;
+        }
+        .kao-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 16px;
+            padding: 0 48px;   /* симметрично: кластер ровно по центру, крестик в желобе */
+            max-width: 100%;
+        }
+        .kao-link {
+            background: var(--md-secondary-container);
+            color: var(--md-on-surface);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: clamp(13px, 2vw, 15px);
+            text-transform: none;    /* не ломаем каомочи Т_Т */
+            border-radius: 999px;   /* m3 pill кнопка */
+            padding: 8px 18px;
+            text-align: center;
+            transition: background .2s, color .2s, transform .2s var(--md-emphasized), box-shadow .2s;
+        }
+        .kao-link:hover {
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-1);
+        }
+        .kao-banner #countdown {
+            background: var(--md-surface-container-high);
+            color: var(--md-on-surface);
+            font-weight: 700;
+            font-size: clamp(13px, 2vw, 15px);
+            padding: 6px 14px;
+            border-radius: 999px;
+            letter-spacing: .3px;
+            display: inline-block;
+            min-width: 190px;
+            text-align: center;
+            font-variant-numeric: tabular-nums;
+            transition: background-color .3s ease, color .3s ease;
+        }
+        button.kao-banner-close {
+            position: absolute;                    /* специфичнее .m3-ripple, который ниже по каскаду */
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;                    /* m3 icon button */
+            background: transparent;
+            color: var(--md-on-surface-variant);
+            font-size: 17px;
+            cursor: pointer;
+            transition: background .2s, color .2s;
+        }
+        .kao-banner-close:hover {
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+        }
+
+        /* ===== ШАПКА ===== */
+        .header-section {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+        .avatar {
+            width: clamp(96px, 16vw, 124px);
+            height: clamp(96px, 16vw, 124px);
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: var(--md-surface-container-high);
+            box-shadow: 0 0 0 4px var(--md-primary-container), 0 6px 18px rgba(49, 34, 89, .18);
+        }
+        html[data-theme="dark"] .avatar {
+            box-shadow: 0 0 0 4px var(--md-primary-container), 0 6px 18px rgba(0, 0, 0, .5);
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .header-right {
+            flex: 1;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .name {
+            font-size: clamp(30px, 5vw, 42px);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            letter-spacing: -.3px;
+            line-height: 1.15;
+        }
+
+        /* ===== LAST.FM ВИДЖЕТ ===== */
+        .lastfm-widget {
+            background: var(--md-secondary-container);
+            border-radius: 20px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            min-height: 68px;
+            width: 100%;
+            transition: background-color .3s ease;
+        }
+        .lf-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+        }
+        .lastfm-widget.lf-in .lf-content {
+            animation: m3-pop .5s var(--md-emphasized) backwards; /* анимация появления трека */
+        }
+        @keyframes m3-pop {
+            from { opacity: 0; transform: scale(.95) translateY(8px); }
+        }
+        .lf-cover {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: var(--md-surface);
+            box-shadow: var(--shadow-1);
+        }
+        .lf-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            min-width: 0;
+            flex: 1;
+        }
+        .lf-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: .6px;
+            color: var(--md-on-surface-variant);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .lf-track {
+            font-size: clamp(15px, 2vw, 18px);
+            font-weight: 500;
+            color: var(--md-on-surface);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .lf-artist {
+            font-size: clamp(13px, 1.6vw, 14px);
+            color: var(--md-on-surface-variant);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .lf-loading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--md-on-surface-variant);
+            font-size: 14px;
+            width: 100%;
+        }
+        .lf-spinner {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2.5px solid var(--md-primary);
+            border-top-color: transparent;
+            animation: pl-rotate .75s linear infinite;
+            flex-shrink: 0;
+        }
+        .lf-error {
+            color: var(--md-on-surface-variant);
+            font-size: 14px;
+            padding: 4px 0;
+        }
+        .lf-eq {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 12px;
+            flex-shrink: 0;
+        }
+        .lf-eq i {
+            width: 3px;
+            border-radius: 2px;
+            background: var(--md-primary);
+            transform-origin: bottom;
+            animation: lf-eq .8s ease-in-out infinite alternate;
+        }
+        .lf-eq i:nth-child(1) { height: 7px; animation-delay: -.2s; }
+        .lf-eq i:nth-child(2) { height: 12px; animation-delay: -.4s; }
+        .lf-eq i:nth-child(3) { height: 9px; animation-delay: -.6s; }
+        @keyframes lf-eq {
+            from { transform: scaleY(.3); }
+            to { transform: scaleY(1); }
+        }
+
+        /* ===== ОБо МНЕ ===== */
+        .about-section {
+            background: var(--md-surface-card);
+            border: 1px solid var(--md-outline-variant);
+            border-radius: 20px;
+            padding: clamp(16px, 3vw, 24px);
+            margin-bottom: 26px;
+            box-shadow: var(--shadow-1);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .about-text {
+            font-size: clamp(14px, 2.2vw, 16px);
+            line-height: 1.75;
+            color: var(--md-on-surface);
+        }
+        .about-link {
+            color: var(--md-primary);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: .2s;
+        }
+        .about-link:hover { border-bottom-color: var(--md-primary); }
+
+        /* ===== СЕКЦИИ ===== */
+        .section { margin-bottom: 26px; }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            color: var(--md-primary);
+            margin-bottom: 14px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--md-outline-variant);
+        }
+
+        /* ===== КАРТОЧКИ-ССЫЛКИ (m3) ===== */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 205px), 1fr));
+            gap: 10px;
+        }
+        .link-card {
+            background: var(--md-surface-card);
+            border: 1px solid var(--md-outline-variant);
+            border-radius: 16px;                  /* m3 rounded corner */
+            padding: 13px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--md-on-surface);
+            font-weight: 500;
+            font-size: clamp(12px, 1.6vw, 14px);
+            min-height: 50px;
+            box-shadow: var(--shadow-1);
+            transition: transform .22s var(--md-emphasized), box-shadow .22s var(--md-emphasized), border-color .22s, background-color .3s ease;
+        }
+        .link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--hover-border);
+            box-shadow: var(--shadow-2);
+        }
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 7px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .text-logo {
+            width: auto;
+            min-width: 24px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--md-on-surface);
+            line-height: 1;
+            white-space: nowrap;   /* >.< не должен мяться и переноситься */
+        }
+
+        /* ===== КОПИРУЕМЫЕ ПУНКТЫ ===== */
+        .copy-item {
+            cursor: pointer;
+            user-select: all;
+            letter-spacing: .3px;
+        }
+        .copy-item.copied {
+            background: var(--md-primary-container);
+            border-color: var(--md-primary);
+        }
+        .copy-item .card-text, .copy-item .email-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ===== ДРУЗЬЯ 88x31 (без обводки) ===== */
+        .friends-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            padding: 4px 0;
+        }
+        .friends-grid a {
+            display: block;
+            border-radius: 8px;
+            transition: transform .22s var(--md-emphasized), box-shadow .22s var(--md-emphasized);
+        }
+        .friends-grid a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+        .friends-grid img {
+            display: block;
+            height: 33px;
+            width: auto;
+            image-rendering: pixelated;
+            border-radius: 6px;
+        }
+
+        /* ===== СЕКЦИЯ "ДОБАВЬ КНОПКУ" ===== */
+        .add-button-section {
+            background: var(--md-surface-card);
+            border: 1px solid var(--md-outline-variant);
+            border-radius: 20px;
+            padding: clamp(16px, 3vw, 24px);
+            margin-top: 26px;
+            box-shadow: var(--shadow-1);
+            text-align: center;
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .add-button-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            color: var(--md-primary);
+            margin-bottom: 14px;
+        }
+        .add-button-title::before,
+        .add-button-title::after {
+            content: '';
+            flex: 1;
+            max-width: 120px;
+            height: 1px;
+            background: var(--md-outline-variant);
+        }
+        .add-button-code {
+            background: var(--md-surface-container-high);
+            border: 1px solid var(--md-outline-variant);
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-family: 'Roboto Mono', ui-monospace, 'Courier New', monospace;
+            font-size: clamp(11px, 1.4vw, 13px);
+            color: var(--md-on-surface);
+            word-break: break-all;
+            text-align: left;
+            margin-bottom: 14px;
+            user-select: all;
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .add-button-code code {
+            display: block;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .add-button-preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            padding: 6px 0;
+        }
+        .add-button-preview span {
+            font-size: 14px;
+            color: var(--md-on-surface-variant);
+        }
+        .add-button-preview img {
+            border-radius: 6px;
+        }
+
+        /* m3 filled button */
+        .chip-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--md-primary);
+            color: var(--md-on-primary);
+            border: none;
+            border-radius: 999px;                 /* m3 pill */
+            padding: 9px 20px;
+            font-weight: 500;
+            font-size: 14px;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: var(--shadow-1);
+            transition: transform .22s var(--md-emphasized), box-shadow .22s, filter .22s, background-color .3s ease, color .3s ease;
+        }
+        .chip-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-2);
+            filter: brightness(1.08);
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer-block {
+            margin-top: 30px;
+            padding-top: 18px;
+            text-align: center;
+            border-top: 1px solid var(--md-outline-variant);
+        }
+        .mynickname-link {
+            display: inline-block;
+            padding: 5px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: transform .22s var(--md-emphasized), border-color .22s, box-shadow .22s;
+        }
+        .mynickname-link:hover {
+            transform: translateY(-2px);
+            border-color: var(--hover-border);
+            box-shadow: var(--shadow-2);
+        }
+        .mynickname-link img {
+            display: block;
+            height: 28px;
+            width: auto;
+            border-radius: 5px;
+        }
+        .footer-text {
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--md-on-surface-variant);
+            letter-spacing: .3px;
+        }
+
+        /* ===== ЭФФЕКТ RIPPLE (m3) ===== */
+        .m3-ripple { position: relative; overflow: hidden; }
+        .ripple-ink {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--ripple);
+            transform: scale(0);
+            animation: ripple .55s var(--md-emphasized) forwards;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to { transform: scale(1); opacity: 0; }
+        }
+
+        /* ===== КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ (m3 fab) ===== */
+        #themeToggle {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 52px;
+            height: 52px;
+            border: none;
+            border-radius: 16px;
+            background: var(--md-primary-container);
+            color: var(--md-on-primary-container);
+            cursor: pointer;
+            box-shadow: var(--shadow-2);
+            z-index: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .22s var(--md-emphasized), box-shadow .22s, background-color .3s ease, color .3s ease;
+        }
+        #themeToggle:hover { transform: translateY(-2px) scale(1.04); }
+        #themeToggle:active { transform: scale(.94); }
+        #themeToggle svg { width: 24px; height: 24px; }
+        #themeToggle .icon-sun { display: none; }
+        html[data-theme="dark"] #themeToggle .icon-moon { display: none; }
+        html[data-theme="dark"] #themeToggle .icon-sun { display: block; }
+        body.loaded #themeToggle {
+            animation: m3-reveal .5s var(--md-emphasized) .45s backwards;
+        }
+
+        /* ===== SNACKBAR (m3) ===== */
+        #snackbar {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 16px);
+            background: var(--md-inverse-surface);
+            color: var(--md-inverse-on-surface);
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .25);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+            max-width: calc(100vw - 40px);
+            transition: opacity .3s var(--md-emphasized), transform .3s var(--md-emphasized), background-color .3s ease;
+        }
+        #snackbar.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 640px) {
+            body { padding-top: 140px; padding-left: 12px; padding-right: 12px; }
+            body.no-banner { padding-top: 24px; }
+            .kao-banner { padding: 10px 12px; }
+            .kao-inner { flex-direction: column; gap: 8px; padding: 0 44px; }
+            button.kao-banner-close { top: 8px; right: 6px; transform: none; width: 34px; height: 34px; font-size: 15px; }
+            .kao-banner #countdown { min-width: 0; width: 100%; }
+            .header-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 14px;
+            }
+            .header-right { width: 100%; align-items: center; }
+            .lastfm-widget { padding: 12px 14px; }
+            .lf-info { align-items: center; }
+            .lf-track, .lf-artist { white-space: normal; text-align: center; }
+            .lf-cover { width: 44px; height: 44px; }
+            .link-grid { grid-template-columns: 1fr; }
+            .friends-grid { justify-content: center; }
+            .friends-grid a:hover { transform: none; }
+            #themeToggle { width: 48px; height: 48px; right: 14px; bottom: 14px; border-radius: 14px; }
+            #snackbar { bottom: 84px; }
+        }
+        @media (max-width: 380px) {
+            .friends-grid img { height: 27px; }
+        }
+        @media (min-width: 1100px) {
+            .link-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ===== REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+    </style>
+    <noscript><style>#preloader { display: none; }</style></noscript>
+</head>
+<body>
+
+    <!-- анимация загрузки сайта -->
+    <div id="preloader">
+        <div class="pl-name">Никита Яндиев</div>
+        <svg class="pl-spinner" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="19"></circle>
+        </svg>
+        <div class="pl-text">загрузочка...</div>
+    </div>
+
+    <div class="kao-banner" id="kaoBanner">
+        <div class="kao-inner">
+            <a class="kao-link m3-ripple" href="https://keepandroidopen.org/ru/" target="_blank" rel="noopener">android станет закрытой платформой через Т_Т</a>
+            <span id="countdown">-- д. -- ч -- мин -- с</span>
+        </div>
+        <button class="kao-banner-close m3-ripple" aria-label="закрыть" onclick="closeBanner()">✕</button>
+    </div>
+
+    <div class="container">
+        <div class="header-section">
+            <div class="avatar">
+                <img src="https://ynd.su/%7B2467FB7C-687F-43FE-A8BB-C843ADDF75A0%7D.png" alt="Никита Яндиев" loading="lazy">
+            </div>
+            <div class="header-right">
+                <h1 class="name">Никита Яндиев</h1>
+                <div class="lastfm-widget" id="lastfm-widget">
+                    <div class="lf-loading"><span class="lf-spinner"></span> загружаю последний прослушанный трек</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <p class="about-text">
+                привет! меня зовут Никита, я обычный 14 летий школьник который занимается херней, не более) проживаю в городе Ковров, учусь в школе, живу никому не интересной жизью, вайбкодчю, играю в игры, и сплю. это сайт переходник на мои ресурсы, есть также для версия старых браузеров - <a href="https://nekxd.ru" target="_blank" class="about-link">nekxd.ru</a>
+            </p>
+        </div>
+
+        <section class="section">
+            <div class="section-title">мои соц. сети</div>
+            <div class="link-grid">
+                <a href="https://t.me/addlist/j6ywu8amrGY1NGIy" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=t.me&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>папка с моими каналами в тгшке</span>
+                </a>
+                <a href="https://openvk.org/nxd" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=openvk.org&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>openvk</span>
+                </a>
+                <a href="https://vk.ru/yandhi_soon" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=vk.ru&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>вкухкудахте (не юзаю, тока в крайнем случае)</span>
+                </a>
+                <a href="https://vepurovk.fun/xdd" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=vepurovk.fun&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>vepurovk</span>
+                </a>
+                <a href="https://youtube.com/@yndhv" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>ютуб</span>
+                </a>
+                <a href="https://tiktok.com/@yndhv" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>тт</span>
+                </a>
+                <a href="https://twitch.tv/nekxdd" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=twitch.tv&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>твич</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">проекты</div>
+            <div class="link-grid">
+                <a href="https://soap.nekxd.fun" target="_blank" class="link-card m3-ripple">
+                    <img src="http://soap.nekxd.fun/assets/img/favicon.ico" alt="" class="link-icon" loading="lazy">
+                    <span>soap</span>
+                </a>
+                <a href="https://nekxd.ru/skype" target="_blank" class="link-card m3-ripple">
+                    <img src="https://nekxd.ru/skyp.ico" alt="" class="link-icon" loading="lazy">
+                    <span>сайт skype</span>
+                </a>
+                <a href="https://nekxd.ru/" target="_blank" class="link-card m3-ripple">
+                    <img src="https://nekxd.ru/oldfav.png" alt="" class="link-icon" loading="lazy">
+                    <span>nekxd.ru</span>
+                </a>
+                <a href="https://github.com/nekxd/vkify20" target="_blank" class="link-card m3-ripple">
+                    <img src="https://raw.githubusercontent.com/nekxd/vkify20/refs/heads/master/res/icons/ovk.ico" alt="" class="link-icon" loading="lazy">
+                    <span>vkify20</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">почты</div>
+            <div class="link-grid">
+                <div class="link-card copy-item m3-ripple" onclick="copyEmail(this, 'nekxd@bk.ru')" tabindex="0" title="нажми, чтобы скопировать email">
+                    <img src="http://soap.nekxd.fun/assets/img/favicon.ico" alt="email" class="link-icon" loading="lazy">
+                    <span class="email-text">nekxd@bk.ru</span>
+                </div>
+                <div class="link-card copy-item m3-ripple" onclick="copyEmail(this, 'yandhi@nekxd.ru')" tabindex="0" title="нажми, чтобы скопировать email">
+                    <span class="text-logo">&gt;.&lt;</span>
+                    <span class="email-text">yandhi@nekxd.ru</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">задонатить мне денежку</div>
+            <div class="link-grid">
+                <a href="https://www.donationalerts.com/r/nekxd" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=donationalerts.com&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>donationalerts</span>
+                </a>
+                <div class="link-card copy-item m3-ripple" onclick="copyCardNumber(this)" tabindex="0" title="нажми, чтобы скопировать номер карты">
+                    <img src="https://www.google.com/s2/favicons?domain=yoomoney.ru&sz=32" alt="ЮMoney" class="link-icon" loading="lazy">
+                    <span class="card-text">4100119476531198</span>
+                </div>
+                <div class="link-card copy-item m3-ripple" onclick="copyCardNumber(this)" tabindex="0" title="нажми, чтобы скопировать номер карты">
+                    <img src="https://gateline.net/wp-content/uploads/%D0%9B%D0%BE%D0%B3%D0%BE-%D0%A2%D0%B8%D0%BD%D1%8C%D0%BA%D0%BE%D1%84%D1%84_2.png" alt="Тинькофф" class="link-icon" loading="lazy">
+                    <span class="card-text">2200 7021 8463 5477</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">друзья / крутые чуваки</div>
+            <div class="friends-grid">
+                <a href="http://nekxd.ru" target="_blank" class="m3-ripple"><img src="http://nekxd.ru/old.png" width="88" height="31" alt="yandhievru" loading="lazy"></a>
+                <a href="http://madebydimas.top" target="_blank" class="m3-ripple"><img src="http://madebydimas.top/button.gif" width="88" height="31" alt="madebydimas" loading="lazy"></a>
+                <a href="http://myslivets.com" target="_blank" class="m3-ripple"><img src="http://myslivets.com/img/button.png" width="88" height="31" alt="myslivets" loading="lazy"></a>
+                <a href="http://veselcraft.cc/" target="_blank" class="m3-ripple"><img src="http://veselcraft.cc/images/vc.gif" width="88" height="31" alt="veselcraft" loading="lazy"></a>
+                <a href="http://danil.l.cd" target="_blank"><img src="http://danil.l.cd/img/88x31.png" width="88" height="31" alt="шота эээээ короче да"></a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">рекламко крутого</div>
+            <div class="link-grid">
+                <a href="https://faero.top" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=faero.top&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>faero.top</span>
+                </a>
+                <a href="https://t.me/faerochat" target="_blank" class="link-card m3-ripple">
+                    <img src="https://www.google.com/s2/favicons?domain=t.me&sz=32" alt="" class="link-icon" loading="lazy">
+                    <span>faerochat</span>
+                </a>
+                <a href="http://metrosocial.pythonanywhere.com/" target="_blank" class="link-card m3-ripple">
+                    <span class="text-logo">m</span>
+                    <span>metrosocial</span>
+                </a>
+                <a href="http://mts.nekxd.fun" target="_blank" class="link-card m3-ripple">
+                    <img src="http://nekxd.fun/mts.ico" alt="" class="link-icon" loading="lazy">
+                    <span>мтс??</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="add-button-section">
+            <div class="add-button-title">добавьте мою кнопку на свой сайт</div>
+
+            <div class="add-button-code">
+                <code id="buttonCode">&lt;a href="https://ynd.su" target="_blank"&gt;&lt;img src="http://ynd.su/ynd.png" width="88" height="31" alt="yandhiev" loading="lazy"&gt;&lt;/a&gt;</code>
+            </div>
+
+            <button class="chip-btn m3-ripple" id="copyCodeBtn">скопировать код кнопки</button>
+
+            <div class="add-button-preview">
+                <span>пример:</span>
+                <a href="https://ynd.su" target="_blank">
+                    <img src="https://ynd.su/ynd.png" width="88" height="31" alt="yandhiev" loading="lazy">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-block">
+            <a href="https://mynickname.com/id833025" target="_blank" class="mynickname-link">
+                <img src="https://mynickname.com/forum3t5/Nekich.gif" alt="Nekich">
+            </a>
+            <div class="footer-text">yandhiev 2026-????</div>
+        </div>
+    </div>
+
+    <!-- кнопка переключения темы -->
+    <button id="themeToggle" class="m3-ripple" aria-label="переключить тему" title="переключить тему">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+    </button>
+
+    <!-- m3 snackbar -->
+    <div id="snackbar" role="status" aria-live="polite"></div>
+
+    <script>
+        // ===== ПРЕЛОАДЕР =====
+        (function () {
+            var preloader = document.getElementById('preloader');
+            var t0 = Date.now();
+            var done = false;
+            function hidePreloader() {
+                if (done) return;
+                done = true;
+                var wait = Math.max(0, 800 - (Date.now() - t0));
+                setTimeout(function () {
+                    preloader.classList.add('pl-hide');
+                    setTimeout(function () {
+                        document.body.classList.add('loaded');
+                    }, 250);
+                    setTimeout(function () { preloader.remove(); }, 600);
+                }, wait);
+            }
+            if (document.readyState === 'complete') hidePreloader();
+            else window.addEventListener('load', hidePreloader);
+            setTimeout(hidePreloader, 6000);
+        })();
+
+        // ===== ТЕМА (светлая/тёмная) =====
+        var THEME_KEY = 'nekxd' + '-theme';
+        function currentTheme() {
+            return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        }
+        function setTheme(t) {
+            if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+            else document.documentElement.removeAttribute('data-theme');
+            try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+            var m = document.querySelector('meta[name="theme-color"]');
+            if (m) m.setAttribute('content', t === 'dark' ? '#141218' : '#f3edfa');
+        }
+        document.getElementById('themeToggle').addEventListener('click', function () {
+            setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+        });
+        setTheme(currentTheme()); // синхронизируем meta при загрузке
+
+        // ===== БАННЕР =====
+        function closeBanner() {
+            var b = document.getElementById('kaoBanner');
+            document.body.classList.add('no-banner');
+            b.classList.add('banner-hide');
+            setTimeout(function () { b.remove(); }, 400);
+        }
+
+        function updateCountdown() {
+            var now = new Date();
+            var target = new Date('2027-01-01T00:00:00');
+            var diff = Math.floor((target - now) / 1000);
+
+            if (diff < 0) {
+                document.getElementById('countdown').textContent = '0 д. 00 ч 00 мин 00 с';
+                return;
+            }
+
+            var days = Math.floor(diff / 86400);
+            var hours = String(Math.floor((diff % 86400) / 3600)).padStart(2, '0');
+            var mins = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+            var secs = String(diff % 60).padStart(2, '0');
+
+            document.getElementById('countdown').textContent = days + ' д. ' + hours + ' ч ' + mins + ' мин ' + secs + ' с';
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ===== SNACKBAR =====
+        var sbTimer;
+        function snack(msg) {
+            var sb = document.getElementById('snackbar');
+            sb.textContent = msg;
+            sb.classList.add('show');
+            clearTimeout(sbTimer);
+            sbTimer = setTimeout(function () { sb.classList.remove('show'); }, 2200);
+        }
+
+        function flashCopied(el) {
+            el.classList.add('copied');
+            setTimeout(function () { el.classList.remove('copied'); }, 1800);
+        }
+
+        // ===== КОПИРОВАНИЕ =====
+        function copyEmail(element, email) {
+            navigator.clipboard.writeText(email).then(function () {
+                flashCopied(element);
+                snack('скопировано: ' + email);
+            }).catch(function () {
+                alert('email: ' + email);
+            });
+        }
+
+        function copyCardNumber(element) {
+            var cardNumber = element.querySelector('.card-text').textContent.trim();
+            navigator.clipboard.writeText(cardNumber).then(function () {
+                flashCopied(element);
+                snack('скопировано: ' + cardNumber);
+            }).catch(function () {
+                alert('номер карты: ' + cardNumber);
+            });
+        }
+
+        // enter на копируемых карточках с клавиатуры
+        document.addEventListener('keydown', function (e) {
+            if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('copy-item')) {
+                e.preventDefault();
+                e.target.click();
+            }
+        });
+
+        // кнопка "скопировать код"
+        document.getElementById('copyCodeBtn').addEventListener('click', function () {
+            var code = document.getElementById('buttonCode').textContent;
+            navigator.clipboard.writeText(code).then(function () {
+                snack('скопирован код кнопки');
+            }).catch(function () {
+                alert(code);
+            });
+        });
+
+        // ===== M3 RIPPLE =====
+        document.addEventListener('pointerdown', function (e) {
+            var el = e.target.closest('.m3-ripple');
+            if (!el) return;
+            var r = el.getBoundingClientRect();
+            var d = Math.max(r.width, r.height) * 1.15;
+            var s = document.createElement('span');
+            s.className = 'ripple-ink';
+            s.style.width = s.style.height = d + 'px';
+            s.style.left = (e.clientX - r.left - d / 2) + 'px';
+            s.style.top = (e.clientY - r.top - d / 2) + 'px';
+            el.appendChild(s);
+            s.addEventListener('animationend', function () { s.remove(); });
+        });
+
+        // ===== LAST.FM ВИДЖЕТ (с анимацией загрузки трека) =====
+        (function loadLastFm() {
+            var widget = document.getElementById('lastfm-widget');
+            var apiKey = '58456c5a4406ed377b1167b05b55a0f5';
+            var username = 'nekxd';
+
+            fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=' + username + '&api_key=' + apiKey + '&format=json&limit=1')
+                .then(function (response) {
+                    if (!response.ok) throw new Error('ошибочка сети ^_^');
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (data.error) throw new Error(data.message || 'ошибочка в api >.<');
+
+                    var track = data.recenttracks.track[0];
+                    if (!track) throw new Error('нет данных о прослушивании :(');
+
+                    var name = track.name || 'без названия';
+                    var artist = track.artist['#text'] || 'неизвестный исполнитель';
+                    var isNowPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
+
+                    var coverUrl = track.image && track.image[2] && track.image[2]['#text']
+                        ? track.image[2]['#text']
+                        : 'https://www.google.com/s2/favicons?domain=last.fm&sz=64';
+
+                    var statusText = isNowPlaying ? 'сейчас слушаю' : 'недавно слушал';
+                    var eq = isNowPlaying ? '<span class="lf-eq"><i></i><i></i><i></i></span>' : '';
+
+                    widget.innerHTML =
+                        '<div class="lf-content">' +
+                            '<img src="' + coverUrl + '" alt="обложка" class="lf-cover" loading="lazy" ' +
+                            "onerror=\"this.src='https://www.google.com/s2/favicons?domain=last.fm&sz=64'\">" +
+                            '<div class="lf-info">' +
+                                '<span class="lf-label">' + eq + statusText + '</span>' +
+                                '<span class="lf-track">' + name + '</span>' +
+                                '<span class="lf-artist">' + artist + '</span>' +
+                            '</div>' +
+                        '</div>';
+
+                    // анимация появления трека (m3 pop)
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            widget.classList.add('lf-in');
+                        });
+                    });
+                })
+                .catch(function (error) {
+                    console.error('last.fm ошибка:', error);
+                    widget.innerHTML = '<div class="lf-error">упс.. ошибка загрузки данных. вероятно сервис недоступен в вашей стране :/</div>';
+                });
+        })();
+
+        console.log('chlen');
+    </script>
+
+</body>
+</html>
