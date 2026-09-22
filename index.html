@@ -190,6 +190,7 @@
         body.loaded .container > *:nth-child(8) { animation-delay: .38s; }
         body.loaded .container > *:nth-child(9) { animation-delay: .43s; }
         body.loaded .container > *:nth-child(10) { animation-delay: .48s; }
+        body.loaded .container > *:nth-child(11) { animation-delay: .53s; }
         @keyframes m3-reveal {
             from { opacity: 0; transform: translateY(16px); }
         }
@@ -422,7 +423,7 @@
             to { transform: scaleY(1); }
         }
 
-        /* ===== ОБо МНЕ ===== */
+        /* ===== ОБО МНЕ ===== */
         .about-section {
             background: var(--md-surface-card);
             border: 1px solid var(--md-outline-variant);
@@ -445,6 +446,51 @@
             transition: .2s;
         }
         .about-link:hover { border-bottom-color: var(--md-primary); }
+
+        /* ===== РАНДОМНАЯ ЦИТАТА ===== */
+        .quote-section {
+            background: var(--md-surface-card);
+            border: 1px solid var(--md-outline-variant);
+            border-radius: 20px;
+            padding: clamp(16px, 3vw, 22px);
+            margin-bottom: 26px;
+            box-shadow: var(--shadow-1);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            text-transform: none; /* сохраняем регистр авторов и эмодзи */
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .quote-icon {
+            font-size: 32px;
+            line-height: 1;
+            color: var(--md-primary);
+            opacity: .85;
+            flex-shrink: 0;
+            user-select: none;
+            font-family: Georgia, serif;
+        }
+        .quote-content {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .quote-text {
+            font-size: clamp(14px, 2.2vw, 16px);
+            line-height: 1.6;
+            font-style: italic;
+            color: var(--md-on-surface);
+            white-space: pre-line;
+        }
+        .quote-author {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--md-on-surface-variant);
+            text-align: right;
+            align-self: flex-end;
+        }
 
         /* ===== СЕКЦИИ ===== */
         .section { margin-bottom: 26px; }
@@ -825,6 +871,15 @@
             </p>
         </div>
 
+        <!-- блок со случайной цитатой -->
+        <div class="quote-section">
+            <div class="quote-icon" aria-hidden="true">“</div>
+            <div class="quote-content">
+                <div class="quote-text" id="quoteText"></div>
+                <div class="quote-author" id="quoteAuthor"></div>
+            </div>
+        </div>
+
         <section class="section">
             <div class="section-title">мои соц. сети</div>
             <div class="link-grid">
@@ -844,7 +899,7 @@
                     <img src="https://www.google.com/s2/favicons?domain=discord.gg&sz=32" alt="" class="link-icon" loading="lazy">
                     <span>дискорд</span>
                 </a>
-               <a href="hhttps://www.reddit.com/user/Adept-Boss5061/" target="_blank" class="link-card m3-ripple">
+               <a href="https://www.reddit.com/user/Adept-Boss5061/" target="_blank" class="link-card m3-ripple">
                     <img src="https://www.google.com/s2/favicons?domain=reddit.com&sz=32" alt="" class="link-icon" loading="lazy">
                     <span>реддит</span>
                 </a>
@@ -1037,6 +1092,60 @@
             setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
         });
         setTheme(currentTheme()); // синхронизируем meta при загрузке
+
+        // ===== РАНДОМНЫЕ ЦИТАТЫ (меняются каждую перезагрузку сайта) =====
+        (function () {
+            var quotes = [
+                {
+                    text: '«Блёвбургер - это вам не гамбургер!»',
+                    author: '(с) Павел (Техник) Ивлев, 2007 г.'
+                },
+                {
+                    text: '«Мы покурили, дало в ноги.»',
+                    author: '(с) Павел (Техник) Ивлев, 2006 г.'
+                },
+                {
+                    text: '«Чем я хуже лошади? Курю на красной плошади.»',
+                    author: '(с) Андрей (Блёв МС) Захряпин, 2006 г.'
+                },
+                {
+                    text: '«И писаю и какаю.»',
+                    author: '(c) Nekich, 2024 г.'
+                },
+                {
+                    text: '«вась связь»',
+                    author: '(c) Никита Яндиев, 2026 г.'
+                },
+                {
+                    text: '«сожги свой комп»',
+                    author: '(c) Данил (yuno) Жужич, 2026 г.'
+                },
+                {
+                    text: '«бычьи яйца»',
+                    author: '(c) Матвей (MatCher), 2026 г.'
+                },
+                {
+                    text: '«Если море был егермейстером, я бы стал подводным крейсером»',
+                    author: '(c) Анчоус Фарол Фараолович, 2026 г.'
+                },
+                {
+                    text: '«Почему ты смотришь первый шаг / завтрашнего джо и не обзываеш другие аниме\n-Хз, развиваюсь😂✌️»',
+                    author: '(c) Дмитрий (Mist) Мистический, 2026 г.'
+                },
+                {
+                    text: '«А ты купи слона.»',
+                    author: '(c) Дмитрий Стеклопакеты, 2026 г.'
+                }
+            ];
+
+            var chosen = quotes[Math.floor(Math.random() * quotes.length)];
+            var qText = document.getElementById('quoteText');
+            var qAuthor = document.getElementById('quoteAuthor');
+            if (qText && qAuthor && chosen) {
+                qText.textContent = chosen.text;
+                qAuthor.textContent = chosen.author;
+            }
+        })();
 
         // ===== БАННЕР =====
         function closeBanner() {
